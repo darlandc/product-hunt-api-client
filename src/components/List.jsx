@@ -20,7 +20,7 @@ const List = (props) => {
 			order: props.option,
 		},
 	});
-	const [posts, setPosts] = React.useState({
+	const [posts, setPosts] = useState({
 		posts: []
 	});
 
