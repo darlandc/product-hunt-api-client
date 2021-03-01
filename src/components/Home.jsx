@@ -12,17 +12,16 @@ export default function Home() {
 
   const handleChange = (event, tabSelected) => {
     setValue(tabSelected);
-    console.log(tabSelected);
     tabSelected === 0
       ? setOption({selected: 'NEWEST'})
       : setOption({selected: 'VOTES'});
-    console.log(option);
   };
 
   return (
     <>
-      <Paper square>
+      <Paper square className="paper">
         <Tabs
+          className="tabs"
           value={value}
           indicatorColor="primary"
           textColor="primary"

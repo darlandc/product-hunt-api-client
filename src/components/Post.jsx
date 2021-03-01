@@ -1,7 +1,9 @@
-import styled from 'styled-components';
-import Button from '@material-ui/core/Button';
+import styled from "styled-components";
+import Button from "@material-ui/core/Button";
 
 const Card = styled.span`
+  display: flex;
+  flex-direction: column;
   background: transparent;
   border-radius: 3px;
   border: 1px solid #eee;
@@ -13,14 +15,13 @@ const Card = styled.span`
 `;
 
 const Thumbnail = styled.img`
-  border: 1px sold #eee;
-  width: 90%;
+  border: 1px solid #eee;
+  width: 300px;
   margin: 10px 0;
 `;
 
-const Post = (props) => {
+const Post = props => {
   const postInfo = props.postInfo;
-  console.log(postInfo);
 
   return (
     <>
@@ -30,7 +31,7 @@ const Post = (props) => {
         <Thumbnail src={postInfo.thumbnail.url} />
         <Button
           variant="contained"
-          onClick={(event) => (window.location.href = `${postInfo.url}`)}
+          onClick={event => (window.location.href = `${postInfo.url}`)}
         >
           Open
         </Button>

@@ -29,8 +29,6 @@ const List = (props) => {
 		fetchMore({
 			variables: { after: endCursor },
 			updateQuery: (prevResult, { fetchMoreResult }) => {
-				console.log(prevResult);
-				console.log(fetchMoreResult);
 				fetchMoreResult.posts.edges = [...prevResult.posts.edges, ...fetchMoreResult.posts.edges];
 				return fetchMoreResult;
 			},
@@ -50,7 +48,7 @@ const List = (props) => {
 
 	if (loading || !data) {
 		if (error) {
-			return <Alert severity="error">API error ): Try again later!</Alert>
+			return <Alert severity="error" className="error">API error ): Try again later!</Alert>
 		} else {
 			return <CircularProgress/>;
 		}
