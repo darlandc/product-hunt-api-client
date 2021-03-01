@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Post from './Post';
 import styled from 'styled-components';
 import { useQuery } from '@apollo/client';
@@ -20,8 +20,9 @@ const List = (props) => {
 			order: props.option,
 		},
 	});
-
-	let posts;
+	const [posts, setPosts] = React.useState({
+		posts: []
+	});
 
 	function fetchMorePosts(data) {
 		const { endCursor } = data.posts.pageInfo;
@@ -55,7 +56,7 @@ const List = (props) => {
 	}
 
 	if (data) {
-		posts = data.posts.edges || [];
+		let posts = data.posts.edges || [];
 		return (
 			<>
 				<WrapperList>
@@ -66,5 +67,8 @@ const List = (props) => {
 			</>
 		);
 	}
+	setPosts({
+		posts
+	})
 };
 export default List;

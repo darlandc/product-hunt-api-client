@@ -3,6 +3,7 @@ import Button from "@material-ui/core/Button";
 
 const Card = styled.span`
   display: flex;
+  align-items: center;
   flex-direction: column;
   background: transparent;
   border-radius: 3px;
