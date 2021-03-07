@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 const Card = styled.span`
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   background: transparent;
   border-radius: 3px;
   border: 1px solid #eee;
@@ -12,13 +12,14 @@ const Card = styled.span`
   margin: 1rem 1em;
   padding: 0px 1em 1em 1em;
   border-radius: 6px;
-  box-shadow: 2px 2px 5px #c0c0c0;
+border: 1px solid red;
 `;
 
 const Thumbnail = styled.img`
   border: 1px solid #eee;
-  width: 300px;
+  width: 100px;
   margin: 10px 0;
+  border-radius: 6px;
 `;
 
 const Post = props => {
@@ -27,10 +28,11 @@ const Post = props => {
   return (
     <>
       <Card className="target">
+      <Thumbnail src={postInfo.thumbnail.url} />
         <h4>{postInfo.name}</h4>
         <p> {postInfo.tagline} </p>
-        <Thumbnail src={postInfo.thumbnail.url} />
         <Button
+          className="btnOpen"
           variant="contained"
           onClick={event => (window.location.href = `${postInfo.url}`)}
         >

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Post from './Post';
 import styled from 'styled-components';
 import { useQuery } from '@apollo/client';
@@ -20,13 +20,12 @@ const List = (props) => {
 			order: props.option,
 		},
 	});
-	const [posts, setPosts] = useState({
-		posts: []
-	});
 
 	function fetchMorePosts(data) {
 		const { endCursor } = data.posts.pageInfo;
-
+		if (error) {
+			showError(error.status);
+		}
 		fetchMore({
 			variables: { after: endCursor },
 			updateQuery: (prevResult, { fetchMoreResult }) => {
@@ -34,6 +33,10 @@ const List = (props) => {
 				return fetchMoreResult;
 			},
 		});
+	}
+
+	function showError(){
+		return <Alert severity="error" className="error">API error ): Try again later!</Alert>
 	}
 
 	useEffect(() => {
@@ -67,8 +70,5 @@ const List = (props) => {
 			</>
 		);
 	}
-	setPosts({
-		posts
-	})
 };
 export default List;

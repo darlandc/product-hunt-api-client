@@ -9,10 +9,6 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-button {
-    flex: 1;
-}
-
 .App {
     display: flex;
     flex-direction: column;
@@ -33,4 +29,10 @@ button {
 .error {
     position: relative;
     margin: 2rem 0;
+}
+
+.btnOpen {
+    position: relative;
+    width: 30px;
+    right: 10px;;
 }
